@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
+// Splice on each duplicate.
 var removeDuplicates = function(nums) {
     let last;
 
@@ -13,6 +14,7 @@ var removeDuplicates = function(nums) {
     return nums.length;
 };
 
+// Splice on chunks of duplicates.
 var removeDuplicates2 = function(nums) {
     let count = 0;
     for (let i = nums.length - 1; i >= 0; i--) {
@@ -26,6 +28,7 @@ var removeDuplicates2 = function(nums) {
     return nums.length;
 }
 
+// Organize unique values up front and splice the remaining.
 var removeDuplicates3 = function(nums) {
     if (nums.length <= 1) return nums.length;
     let i=0, j=0;
