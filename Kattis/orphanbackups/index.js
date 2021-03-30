@@ -1,3 +1,5 @@
+// https://open.kattis.com/problems/orphanbackups
+
 // node index.js < a-sample.in > a-sample.out
 // diff a-sample.out a-sample.ans
 
@@ -13,14 +15,17 @@ const images = new Map();
 const orphanFiles = [];
 let readingImages = true;
 
+const regex = /(.*)(_[^_]+){2}$/m;
+
 rl.on('line', (line) => {
   if (!line) {
     readingImages = false;
   } else if (readingImages) {
     images.set(line, 0);
   } else {
-    const splits = line.split('_');
-    const fileName = splits.slice(0, splits.length - 2).join('_');
+    // const splits = line.split('_');
+    // const fileName = splits.slice(0, splits.length - 2).join('_');
+    const fileName = line.match(regex)[1];
     const imageCount = images.get(fileName);
     if (imageCount != null) {
       images.set(fileName, imageCount + 1);
