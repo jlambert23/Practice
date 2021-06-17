@@ -1,3 +1,4 @@
+// https://www.hackerrank.com/challenges/camelcase/problem
 'use strict';
 
 const fs = require('fs');
