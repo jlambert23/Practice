@@ -31,8 +31,7 @@ function readLine() {
  */
 
 function marsExploration(s) {
-    const s2 = 'SOS'.repeat(s.length / 3);
-    return s.split('').filter((s, i) => s !== s2.charAt(i)).length;
+    return s.split('').filter((s, i) => s !== 'SOS'.charAt(i % 3)).length;
 }
 
 function main() {
