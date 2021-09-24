@@ -1,0 +1,42 @@
+<!-- https://cssbattle.dev/play/80 -->
+<div class='keyboard'>
+  <div class='key'></div>
+  <div class='key'></div>
+  <div class='key'></div>
+  <div class='key'></div>
+  <div class='key'></div>
+  <div class='key'></div>
+  <div class='key'></div>
+</div>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #998235
+  }
+  .keyboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 170px;
+    height: 90px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #191919;
+  }
+  .key {
+    width: 20px;
+    height: 70px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+  }
+  .key:not(:nth-child(1)):not(:nth-child(4))::before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 35px;
+    margin-left: -10px;
+    background-color: #191919;
+  }
+</style>
