@@ -37,3 +37,34 @@ var nextLargerNodes = function(head) {
         
     return answer;
 };
+
+var nextLargerNodesLookBehind = function(head) {
+    const answer = [];
+    let observed = [];
+    
+    const updateObserved = (value) => {
+        let update = [];
+        for (obs of observed) {
+            if (obs.value < value) {
+                answer[obs.index] = value;
+            } else {
+                update.push(obs);
+            }
+        }
+        observed = update;
+    }
+    
+    let i = 0;
+    let current = head;
+    while (current) {
+        updateObserved(current.val);
+        observed.push({ index: i++, value: current.val });
+        current = current.next;   
+    }
+    
+    for (obs of observed) {
+        answer[obs.index] = 0;
+    }
+
+    return answer;
+};
