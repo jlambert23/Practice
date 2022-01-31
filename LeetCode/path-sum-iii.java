@@ -31,11 +31,10 @@ class Solution {
 
         // accumulate and check result
         for (int i = 0; i <= level; i++) {
-            int accVal = this.accumulators.get(i);
-            this.accumulators.set(i, accVal + current.val);
+            this.accumulators.set(i, this.accumulators.get(i) + current.val);
             
             if (this.accumulators.get(i) == targetSum) {
-                result += 1;
+                this.result += 1;
             }
         }
         
@@ -45,8 +44,7 @@ class Solution {
         
         // cleanup current level
         for (int i = 0; i <= level; i++) {
-            int accVal = this.accumulators.get(i);
-            this.accumulators.set(i, accVal - current.val);
+            this.accumulators.set(i, this.accumulators.get(i) - current.val);
         }
     }
     
